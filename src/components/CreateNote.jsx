@@ -14,8 +14,10 @@ const CreateNote = (props) => {
 
   function submitNote(event) {
     event.preventDefault();
-    props.add(note);
-    setNote({ title: '', content: '' });
+    if (note.title !== '' && note.content !== '') {
+      props.add(note);
+      setNote({ title: '', content: '' });
+    }
   }
 
   return (
