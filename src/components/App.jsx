@@ -13,6 +13,14 @@ const App = () => {
     });
   }
 
+  function handleDelete(id) {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((noteItem, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div>
       <Header />
@@ -21,8 +29,10 @@ const App = () => {
         return (
           <Note
             key={index}
+            id={index}
             title={noteItem.title}
             content={noteItem.content}
+            delete={handleDelete}
           />
         );
       })}

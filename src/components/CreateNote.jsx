@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const CreateNote = (props) => {
-  const [note, setNote] = useState([{ title: ' ', content: ' ' }]);
+  const [note, setNote] = useState({ title: '', content: '' });
 
   function handleChange(event) {
     event.preventDefault();
@@ -14,7 +14,8 @@ const CreateNote = (props) => {
 
   function submitNote(event) {
     event.preventDefault();
-    props.add(note)
+    props.add(note);
+    setNote({ title: '', content: '' });
   }
 
   return (
